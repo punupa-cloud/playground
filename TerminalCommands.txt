@@ -1,0 +1,150 @@
+Usefull Terminal Commands
+
+
+
+ls      "List"          Lists all files in the working directory
+        To show all (hidden) files: ls -a
+        To show it in a long listed format: -l
+        To show numbers in human readable form: -h
+
+pwd     "Print working directory"               Shows where the working directory is
+
+cd arg1 "Change directory"      Moves towards argument directory
+        To go to home directory, call cd without an argument, call cd ~ or call it directly
+        To go back one directory call cd -
+
+man arg1        "Manual"        Explains command
+        In Git Bash, needs to use the help command instead
+
+touch arg1      create a new file or update an existing file
+
+cat arg1 arg2   "concatenate"   Primarily displays the contents of a file arg1
+        Also used to concatenate multiple files and output their contents
+        Can create new files and concatenate content to existing files
+        Problem when cating a large file, needs to scroll up a long time
+
+less arg1 arg2  cat but starts at the top of the file
+        To get out of less sequence, type q for quit
+
+grep arg1 arg2  "global regular expression point"       Used to find a string "arg1" in a file arg2
+
+mkdir arg1      "Make directory"        Creates a new directory with the argument as its name
+
+mv arg1 arg2    "Move"  Moves file arg1 to directory arg2
+
+cp arg1 arg2    "Copy"  Copies file arg1 to directory arg2
+
+rm arg1 "remove"        Removes a file
+        Works by putting full path plus filename into arg1, rm home/file1.txt for example
+        Can also be used a non empty directory by using -rf "remove forcefully" flag, but is dangeorous
+
+rmdr arg1       Removes an empty directory arg1
+
+which arg1      Gives the path to the binary/executable of a command/programm arg1
+
+whereis arg1    Gives the paths towards the binary/executable , the library and the manual of the command/programm arg1
+
+locate arg1     shows all the files and paths to them that contains the string of arg1
+        Doesn't automatically come with all linux installations
+        Can be outdated, so need to update database with sudo updatedb
+
+find arg1 flag arg2     Search through directory arg1 for string arg2 in real time
+        To search through root directories, use sudo
+        To ignore capitalisation of the letters in arg2, use -iname flag
+
+sudo arg1       "Superuser do"  Temporarily gives the user the privleges of an administrator
+        Usefull for things that only the admin can do
+
+apt     "Advanced package tool" Used to manage packages
+        To install package arg1, use apt install arg1
+        To update local list of available packages, use apt update
+        To actually install the newest versions of all packages, use apt upgrade
+        To remove package arg1, use apt remove arg1
+        To search for package arg1, use apt search arg1
+        All of these commands need admin power, so use sudo apt ...
+
+clear   Clears terminal
+
+echo arg1       Prints out string arg1, needs to be in ""
+
+printf arg1     Prints out string arg1, needs to be in ""
+        Can use special formatting by using \n to start a new line
+
+sed "s/[arg1]/arg2/g"   "Search and replace" all letters of arg1 in set [arg1] and replaces it with arg2
+
+sort arg1       Sorts arg1 by the firs letters
+
+head arg1       Prints out the first ten lines of a file arg1
+        To print out x lines instead, use head -n x arg1
+
+tail arg1       Prints out the last ten lines od a fie arg1
+        To print out x lines instead, use tail -n x arg1
+
+chmod arg1      "change mode"   Change file permissions
+        to make file arg1 executable use chmod +x arg1
+
+history Gives recentlyy used commands
+        To use xth command used under history again, use !x
+
+kill arg1       Kills the process with the process number arg1
+
+killall arg1    Kills all instances of the arg1 programm
+
+xkill   Turns cursor into an x. Clicking on a programm will kill it.
+
+htop    Shows all running programms
+        Can also be used to kill programms
+
+ping arg1       Pings a server/website arg1
+        Can be used if a connection is stable
+
+wget arg1       Can download files from the web
+
+date    Gives the current date
+
+cal     "Calendar"      Shows current month
+
+bc      "Basic Calculator"      Can do simple math
+        type quit to exit
+
+source arg1     Executes programm in current shell
+        Every change affects current shell
+        Usefull for changing configuration of aliases of current shell
+
+___________________________________________________________________________________________________________
+
+
+Other usefull things
+
+
+
+nano arg1       file editor
+        To create a file and start editing, put new filename as arg1
+        to edit existing file, put existing filename as arg1
+
+Shift   Shift to complete the written word
+
+arg1 > arg2     Takes the output of a command arg1 and puts it into the arg2 file
+        To create a new file, use a new name for arg2
+
+arg1 | arg2     Takes the output of command arg1 and outputs it into the command arg2
+        Can be chained a | b | c | ...
+
+$       Used to indicate substitution
+        To use as variable, $example will be substuted for arg 1, when example="arg 1" was used before
+
+''      Indicates string, ignores spaces and special characters
+
+""      Indicates string, doesnt ignore spacer or special characters
+        Usefull for printing out variables
+
+arg1.sh Shell script. Can be made by using nano arg1.sh
+        To execute the script, use ./arg1.sh
+        If not executable, use chmod
+
+!!      Redo the last command used. Can be added onto another comman: sudo !!
+
+arg1.arg2rc     "Configuration file"    Used to configurate settings
+        Can be used to alter aliases
+
+arg1 && arg2    Used to chain commands. arg2 only gets executed if arg1 is successfully executed
