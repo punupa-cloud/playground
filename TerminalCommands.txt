@@ -1,3 +1,4 @@
+
 Usefull Terminal Commands
 
 
@@ -113,6 +114,22 @@ source arg1     Executes programm in current shell
 
 ___________________________________________________________________________________________________________
 
+Git Commands
+
+git init	Creates a new git repository. Enables core git function: savepoints
+
+git add		Adds item(s) to the commit-list
+	To see which files were modified and can be added, use -n flag
+	To add all modified files in the current and sub directories of the repository, use . flag
+	To add all modified files in the entire repository
+	
+git commit	Create a new save
+	To add a comment, use -m flag
+	To commit files from the commit list, do git commit with no specified flags
+	To commit all modified files, use -a flag. Does not need to be git add'ed first
+	To choose the files to be commited, use -p flag. Does not need to be git add'ed first
+	 
+___________________________________________________________________________________________________________
 
 Other usefull things
 
