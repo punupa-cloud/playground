@@ -116,6 +116,14 @@ ________________________________________________________________________________
 
 Git Commands
 
+git fetch remote	Downloads new data from a remote repository
+
+git log remote branch	Lists commit logs
+
+git merge remote branch	Incorporate changes onto local branch
+
+git pull remote branch Acts like fetch and merge 
+
 git init	Creates a new git repository. Enables core git function: savepoints
 
 git add		Adds item(s) to the commit-list
@@ -128,6 +136,8 @@ git commit	Create a new save
 	To commit files from the commit list, do git commit with no specified flags
 	To commit all modified files, use -a flag. Does not need to be git add'ed first
 	To choose the files to be commited, use -p flag. Does not need to be git add'ed first
+
+git push remote branch	Uploads the save to a remote reository
 	 
 ___________________________________________________________________________________________________________
 
@@ -165,3 +175,7 @@ arg1.arg2rc     "Configuration file"    Used to configurate settings
         Can be used to alter aliases
 
 arg1 && arg2    Used to chain commands. arg2 only gets executed if arg1 is successfully executed
+
+remote	Stands for a remote repository, where saves are located
+
+branch	A parallel change
