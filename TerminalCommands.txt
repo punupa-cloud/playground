@@ -129,7 +129,7 @@ git init	Creates a new git repository. Enables core git function: savepoints
 git add		Adds item(s) to the commit-list
 	To see which files were modified and can be added, use -n flag
 	To add all modified files in the current and sub directories of the repository, use . flag
-	To add all modified files in the entire repository
+	To add all modified files in the entire repository, use -A flag
 	
 git commit	Create a new save
 	To add a comment, use -m flag
