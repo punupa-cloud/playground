@@ -1,0 +1,8 @@
+Setting a new python project with git bash
+
+1)  Create a directory
+2)  Make a new virtual environment via "python -m venv 'venv_name'"
+3)  Activate the virtual environment via "source 'venv_name'/Scripts/activate"
+
+Now ready to make a new python file via touch,code or other commands
+Dont forget to deactivate the virtual environment via the "deactivate" commands
