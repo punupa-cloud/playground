@@ -138,7 +138,18 @@ git commit	Create a new save
 	To choose the files to be commited, use -p flag. Does not need to be git add'ed first
 
 git push remote branch	Uploads the save to a remote reository
-	 
+
+git branch arg1	Used to manage git branches
+	To see a list of all local branches, use no argumetns
+	To see a list of all local and remote branches, use -a flag with no arguments
+	To see a very verbose list, use -vv flag
+	To create a new branch, use a new branch name for arg1
+	To create a new branch starting from a specific branch, add the commitnumber behind the branchname arg1
+	The commitnumber doesnt need to be complete, can be the 7 initial numbers
+	To delete a branch, do use -d flag
+	To renam a branch, do git branch -m oldname newname
+	To see which branches are merged with current branch, use --merged flag
+
 ___________________________________________________________________________________________________________
 
 Other usefull things
@@ -179,3 +190,8 @@ arg1 && arg2    Used to chain commands. arg2 only gets executed if arg1 is succe
 remote	Stands for a remote repository, where saves are located
 
 branch	A parallel change
+
+commit number	Identifies commits, is long, but mostly only the 7 initial numbers are used.
+		Can be viewed on github commit list or by using git log
+
+code arg1       Opens up the file arg1 in VS to edit
