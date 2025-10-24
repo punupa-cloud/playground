@@ -1,10 +1,13 @@
 import sqlite3
 import response_pb2 as response_pb
 from Tracker import Mtracker
-
+from pathlib import Path
+# Build path to the database
+BASE_DIR = Path(__file__).resolve().parent.parent  # manga_tracker/ folder
+DB_PATH = BASE_DIR / "data" / "manga_tracker.db"
 
 def add(manga_name, manga_id):
-    conn = sqlite3.connect('manga_tracker.db')
+    conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
     c.execute('''
         INSERT INTO manga (title, latest_chapter, manga_id) VALUES (?, ?, ?)
@@ -14,7 +17,7 @@ def add(manga_name, manga_id):
 
 
 def remove(manga_name):
-    conn = sqlite3.connect('manga_tracker.db')
+    conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
     c.execute('''
         DELETE FROM manga WHERE title = ?
@@ -23,7 +26,7 @@ def remove(manga_name):
     conn.close()
 
 def list_manga():
-    conn = sqlite3.connect('manga_tracker.db')
+    conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
     c.execute('''
         SELECT rowid, * FROM manga
@@ -33,7 +36,7 @@ def list_manga():
     print(mangas)
 
 def update(tracker):
-    conn = sqlite3.connect('manga_tracker.db')
+    conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
 
     latest_db_chapter = c.execute('''
@@ -53,9 +56,7 @@ def update(tracker):
 
 def get_manga_id(manga_key):
 
-    
-
-    conn = sqlite3.connect('manga_tracker.db')
+    conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
     manga_id = c.execute('''
         SELECT manga_id FROM manga Where rowid = ?

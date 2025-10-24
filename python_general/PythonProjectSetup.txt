@@ -6,3 +6,20 @@ Setting a new python project with git bash
 
 Now ready to make a new python file via touch,code or other commands
 Dont forget to deactivate the virtual environment via the "deactivate" commands
+
+Organizing a python project
+
+General_Project_Folder
+    source              #Actual logic
+        __init__.py     #Used to make it possible to import the source directory as a package
+        main.py         #Where main thread gets started
+        other modules...
+        ...
+    
+    data                #Data used for programm
+        databases
+        other data
+    
+    venv    
+    
+    requirments.txt     #Dependencies like the requests module

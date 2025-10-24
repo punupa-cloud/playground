@@ -4,11 +4,17 @@ from queue import Queue
 from Tracker import Mtracker
 from Mailing_Service import send_email
 from Manga_Tracker_Thread import sequence
+from pathlib import Path
+
 
 if __name__ == "__main__":
 
+    # Build path to the database
+    BASE_DIR = Path(__file__).resolve().parent.parent  # manga_tracker/ folder
+    DB_PATH = BASE_DIR / "data" / "manga_tracker.db"
+
     # Database Creation
-    conn = sqlite3.connect('manga_tracker.db')
+    conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
     c.execute('''
         CREATE TABLE IF NOT EXISTS manga (
@@ -35,8 +41,15 @@ if __name__ == "__main__":
     
     conn.close()
 
+    '''Checking manga_queue contents
     for tracker in list(manga_queue.queue):
         print("Manga name: "+tracker.manga_name +", Latest chapter: "+ tracker.latest_chapter + ", new chapter?: " + str(tracker.new_chapter))
-    
-    # Calling Mailing Service
-    send_email(manga_queue)
+    #'''
+
+    # Calling Mailing Service if new chapter found
+    for tracker in list(manga_queue.queue):
+        if tracker.new_chapter:
+            send_email(manga_queue)
+            #print ("Mail Service called")
+            break
+

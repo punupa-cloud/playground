@@ -16,15 +16,14 @@ def send_email(manga_queue):
             body = body + f"\nNo new chapter for {manga.manga_name}. The latest chapter is still Chapter {manga.latest_chapter}\nRead it here: {manga.latest_chapter_url}.\n"
 
     message = f"""From: {sender}
-    To: {receiver}
-    Subject: {subject}
-    Content-Type: text/plain; charset="utf-8"
+To: {receiver}
+Subject: {subject}
+Content-Type: text/plain; charset="utf-8"
 
-    {body}
-    """
+{body}
+"""
 
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    server.starttls()
-    server.login(sender, password)
-    server.sendmail(sender, receiver, message.encode('utf-8'))
-    server.quit()
+    with smtplib.SMTP('smtp.gmail.com', 587) as server:
+        server.starttls()
+        server.login(sender, password)
+        server.sendmail(sender, receiver, message.encode('utf-8'))

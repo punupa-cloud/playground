@@ -1,4 +1,3 @@
-import sqlite3
 from Tracker import Mtracker
 import requests 
 import response_pb2 as response_pb
